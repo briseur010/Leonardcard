@@ -15,6 +15,7 @@
     --whatsapp-icon-color: #25D366; /* Vert WhatsApp officiel */
     --email-icon-color: #D44638;    /* Rouge/Orange de Gmail pour l'exemple */
     --facebook-icon-color: #1877F2; /* Bleu Facebook officiel */
+    --wechat-icon-color: #07BE5B;   /* Vert WeChat officiel */
     --button-border-color: #e0e0e0; /* Couleur de la bordure subtile des boutons */
     --button-text-color: #333;      /* Couleur du texte des boutons */
 }
@@ -119,7 +120,7 @@ body {
 
 /* Corps de la carte */
 .card-body {
-    padding: calc(var(--spacing-md) + 180px) var(--spacing-md) var(--spacing-lg) var(--spacing-md); /* Espace pour la photo de profil et padding général */
+    padding: calc(var(--spacing-md) + 200px) var(--spacing-md) var(--spacing-lg) var(--spacing-md); /* Espace pour la photo de profil et padding général */
     text-align: center; /* Centrer le nom et la fonction */
 }
 
@@ -209,11 +210,20 @@ body {
     height: 100%;
 }
 
+/* Pour l'image de l'icône WeChat */
+.social-link.wechat .icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 /* Couleurs des icônes spécifiques */
 .social-link.whatsapp .icon svg {
     fill: var(--whatsapp-icon-color);
 }
- 
+.social-link.email .icon svg {
+    /* L'icône de Gmail a déjà des couleurs intégrées */
+}
 .social-link.facebook .icon svg {
     fill: var(--facebook-icon-color); /* Assure que l'icône Facebook est bleue */
 }
@@ -232,6 +242,10 @@ body {
 .social-link.facebook:hover {
     border-color: var(--facebook-icon-color);
 }
+.social-link.wechat:hover {
+    border-color: var(--wechat-icon-color);
+}
+
 
 /* Message de pied de page */
 .footer-message {
