@@ -119,7 +119,7 @@ body {
 
 /* Corps de la carte */
 .card-body {
-    padding: calc(var(--spacing-md) + 130px) var(--spacing-md) var(--spacing-lg) var(--spacing-md); /* Espace pour la photo de profil et padding général */
+    padding: calc(var(--spacing-md) + 180px) var(--spacing-md) var(--spacing-lg) var(--spacing-md); /* Espace pour la photo de profil et padding général */
     text-align: center; /* Centrer le nom et la fonction */
 }
 
