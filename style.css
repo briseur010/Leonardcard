@@ -1,208 +1,218 @@
-/*
- * Fichier CSS pour la carte de visite virtuelle
- * Auteur : [Votre nom]
- * Date : [Date]
- * Version : 1.0
- *
- * Ce fichier est structuré en plusieurs sections pour une meilleure lisibilité :
- * 1. Variables CSS
- * 2. Styles généraux (body, container)
- * 3. Styles de la carte de profil (profile-card)
- * 4. Styles des éléments de la carte (header, body, photos)
- * 5. Styles des boutons de liens sociaux
- * 6. Styles des messages et adresses
- * 7. Media Queries pour la réactivité
-*/
-
-/* ---------------------------------------------------------------------- */
-/* 1. VARIABLES CSS - Pour une gestion facile des couleurs et autres propriétés récurrentes */
-/* ---------------------------------------------------------------------- */
+/* VARIABLES CSS - Pour une gestion facile des couleurs et autres propriétés récurrentes */
 :root {
-    --primary-text-color: #2c3e50;
-    --secondary-text-color: #555;
-    --light-text-color: #7f8c8d;
-    --background-color: #ecf0f1;
-    --card-background: white;
-    --shadow-color: rgba(0,0,0,0.1);
-    --border-radius: 12px;
-    --spacing-sm: 10px;
-    --spacing-md: 20px;
-    --spacing-lg: 30px;
+  --primary-text-color: #333; /* Gris très foncé pour le nom et les titres */
+  --secondary-text-color: #555; /* Gris foncé pour la fonction, l'adresse */
+  --light-text-color: #777; /* Pour des textes plus légers comme "Contacts" */
+  --background-color: #f7f7f7;
+  --card-background: white;
+  --shadow-color: rgba(0,0,0,0.15); /* Ombre plus subtile */
+  --border-radius: 10px;
+  --spacing-sm: 10px;
+  --spacing-md: 20px;
+  --spacing-lg: 40px;
 
-    --whatsapp-icon-color: #25D366;
-    --email-icon-color: #D44638;
-    --facebook-icon-color: #1877F2;
-    --wechat-icon-color: #07BE5B;
-    --button-border-color: #e0e0e0;
-    --button-text-color: #333;
+  /* Couleurs spécifiques aux plateformes (les icônes sont colorées, les boutons sont blancs avec bordure subtile) */
+  --whatsapp-icon-color: #25D366; /* Vert WhatsApp officiel */
+  --email-icon-color: #D44638; 
+  --wechat-icon-color: #07BE5B;   /* Rouge/Orange de Gmail pour l'exemple */
+  --button-border-color: #ddd;   /* Couleur de la bordure subtile des boutons */
+  --button-text-color: #333;     /* Couleur du texte des boutons */
 }
 
-/* ---------------------------------------------------------------------- */
-/* 2. STYLES GÉNÉRAUX */
-/* ---------------------------------------------------------------------- */
+/* Styles généraux du corps */
 body {
-    background-color: var(--background-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: var(--spacing-md);
-    box-sizing: border-box;
-    line-height: 1.6;
-    color: var(--primary-text-color);
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif; /* Utilisation de la police Inter */
+  margin: 0;
+  padding: var(--spacing-md);
+  box-sizing: border-box; /* S'assure que le padding n'augmente pas la taille totale */
+}
+ .banner {
+      width: 100%;
+      height: 200px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      background: url('toge.jpg') center/cover no-repeat;
+    }
+/* Conteneur principal (facultatif si la carte est le seul élément centré) */
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-main.container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-/* ---------------------------------------------------------------------- */
-/* 3. CARTE DE PROFIL */
-/* ---------------------------------------------------------------------- */
+/* Style de la carte de profil */
 .profile-card {
-    width: 100%;
-    max-width: 400px;
-    background-color: var(--card-background);
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 25px var(--shadow-color);
-    text-align: left;
-    overflow: hidden;
-    position: relative;
+  width: 100%;
+  max-width: 380px; /* Largeur maximale pour la carte */
+  background-color: whitesmoke;
+  border-radius: var(--border-radius);
+  box-shadow: 0 8px 20px var(--shadow-color); /* Ombre plus douce et étendue */
+  text-align: left; /* Alignement du texte à gauche par défaut */
+  overflow: hidden; /* S'assure que le contenu ne dépasse pas les bords arrondis */
 }
 
-/* ---------------------------------------------------------------------- */
-/* 4. ÉLÉMENTS DE LA CARTE */
-/* ---------------------------------------------------------------------- */
-
-/* Bannière */
-.banner {
-    width: 100%;
-    height: 180px;
-    background: url('toge.jpg') center/cover no-repeat;
-    border-top-left-radius: var(--border-radius);
-    border-top-right-radius: var(--border-radius);
-}
-
-/* En-tête de la carte (inclut le texte de marque et la photo de profil) */
+/* Section de l'en-tête de la carte (bande supérieure) */
 .card-header {
-    position: relative;
-    height: 120px; /* L'espace visuel au-dessus du nom */
+  background-image: url('https://via.placeholder.com/380x120/007bff/ffffff?text=Background+Image'); /* Remplace par ton image de fond */
+  /* Exemple d'une image de fond plus cohérente avec une carte professionnelle: */
+  /* background-image: url('https://images.unsplash.com/photo-1517486804595-d227447493a3?fit=crop&w=380&h=120&q=80'); */
+  background-size: cover;
+  background-position: center;
+  height: 120px; /* Hauteur fixe pour l'image de fond */
+  position: relative; /* Pour positionner la photo de profil par rapport à cet élément */
+  display: flex; /* Pour centrer le texte de l'en-tête */
+  justify-content: center;
+  align-items: flex-start; /* Aligner en haut pour le texte */
+  padding-top: var(--spacing-sm); /* Espacement en haut pour le texte */
 }
 
-/* Texte de marque "PS-Corp" */
+/* Texte de marque dans l'en-tête */
 .header-text {
-    color: white;
-    font-weight: 700;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-    font-size: 1em;
-    background-color: rgba(0,0,0,0.3);
-    padding: 5px 12px;
-    border-radius: 8px;
-    position: absolute;
-    top: var(--spacing-sm);
-    left: var(--spacing-md);
+  color: white;
+  font-weight: 700;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.6); /* Ombre prononcée pour la lisibilité */
+  font-size: 0.9em;
+  background-color: rgba(0,0,0,0.2); /* Fond semi-transparent pour le texte */
+  padding: 3px 8px;
+  border-radius: 5px;
 }
 
-/* Conteneur de la photo de profil */
+/* Conteneur et style de la photo de profil */
 .profile-photo-container {
-    position: absolute;
-    top: 100px; /* Ajusté pour centrer l'image verticalement dans l'espace */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 6px 15px var(--shadow-color);
-    overflow: hidden;
-    border: 4px solid white;
-    z-index: 10;
+  position: absolute;
+  top: -30px; /* Positionnement à cheval sur l'en-tête et le corps */
+  left: 50%;
+  transform: translateX(-50%); /* Centrage parfait */
+  width: 150px; /* Taille de la photo */
+  height: 150px;
+  border-radius: 50%; /* Rendre le conteneur rond */
+  background-color: white; /* Fond blanc derrière la photo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px var(--shadow-color); /* Ombre pour la photo */
+  overflow: hidden; /* S'assurer que l'image ne dépasse pas */
+  border: 3px solid white; /* Bordure blanche autour de la photo */
 }
 
 .profile-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
+  width: 100%; /* L'image remplit le conteneur */
+  height: 100%;
+  object-fit: cover; /* Recadre l'image pour qu'elle remplisse le conteneur */
+  border-radius: 50%; /* Assure que l'image elle-même est ronde si le conteneur est rond */
 }
 
 /* Corps de la carte */
 .card-body {
-    padding: 80px var(--spacing-md) var(--spacing-lg); /* Réduit le padding-top pour plus de clarté */
-    text-align: center;
+  padding: calc(var(--spacing-md) + 0px) var(--spacing-md) var(--spacing-md) var(--spacing-md); /* Espace pour la photo de profil et padding général */
+  text-align: center; /* Centrer le nom et la fonction */
 }
 
-/* Nom et titre */
+/* Nom de la personne */
 .card-body .name {
-    margin: 0;
-    font-size: 2em;
-    color: var(--primary-text-color);
-    font-weight: 700;
-    line-height: 1.2;
+  margin: 0;
+  font-size: 1.8em;
+  color: var(--primary-text-color);
+  font-weight: 700;
+  line-height: 1.2;
 }
 
+/* Titre/Fonction de la personne */
 .card-body .title {
-    margin: 5px 0 30px;
-    font-size: 1.2em;
-    color: var(--secondary-text-color);
-    font-weight: 500;
+  margin: 5px 0 25px 0; /* Plus d'espace après la fonction */
+  font-size: 1.1em;
+  color: var(--secondary-text-color);
+  font-weight: 400;
+}
+.card-body .title2 {
+  margin: 4px 0 22px 0; /* Plus d'espace après la fonction */
+  font-size: 1.1em;
+  color: red;
+  font-weight: 700;
 }
 
-/* Titres de section */
+/* Titres de section (ex: Contacts, Adresse) */
 .section-title {
-    font-size: 1em;
-    color: var(--light-text-color);
-    margin: var(--spacing-md) 0 var(--spacing-sm);
-    text-align: center;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.8px;
+  font-size: 0.9em;
+  color: var(--light-text-color);
+  margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+  text-align: left; /* Aligner les titres de section à gauche */
+  padding: 0 var(--spacing-md); /* Padding pour aligner avec les éléments du corps */
+  font-weight: 500; /* Poids moyen */
+  text-transform: uppercase; /* Majuscules */
+  letter-spacing: 0.5px;
+}
+.section-title2 {
+  font-size: 0.9em;
+  color: var(--light-text-color);
+  margin: var(--spacing-md) 0 var(--spacing-sm) 0;
+  text-align: left; /* Aligner les titres de section à gauche */
+  padding: 0 var(--spacing-md); /* Padding pour aligner avec les éléments du corps */
+  font-weight: 500; /* Poids moyen */
+  text-transform: uppercase; /* Majuscules */
+  letter-spacing: 0.5px;
 }
 
-/* ---------------------------------------------------------------------- */
-/* 5. BOUTONS DE LIENS SOCIAUX */
-/* ---------------------------------------------------------------------- */
+/* Section adresse */
+.address-section {
+  padding: 0 var(--spacing-md);
+  margin-bottom: var(--spacing-md); /* Espace après l'adresse */
+}
+.address-section p {
+  margin: 0;
+  color: var(--secondary-text-color);
+  font-size: 1.0em;
+  display: flex; /* Pour aligner l'icône Ionicon avec le texte */
+  align-items: center;
+}
+.address-section ion-icon {
+  margin-right: 5px; /* Espacement entre l'icône et le texte */
+  font-size: 1.2em; /* Taille de l'icône */
+  color: var(--light-text-color); /* Couleur de l'icône */
+}
+
+/* Conteneur des liens sociaux */
 .social-links-container {
-    padding: 0 var(--spacing-md);
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-sm);
+  padding: 0 var(--spacing-md); /* Padding pour aligner les boutons */
 }
 
+/* Styles des liens sociaux (boutons) */
 .social-link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    background-color: var(--card-background);
-    border: 1px solid var(--button-border-color);
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 500;
-    color: var(--button-text-color);
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    will-change: transform; /* Hint pour l'accélération matérielle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--spacing-sm); /* Moins de marge entre les boutons */
+  height: 48px; /* Hauteur fixe pour les boutons */
+  background-color: var(--card-background); /* Fond blanc */
+  border: 1px solid var(--button-border-color); /* Bordure subtile */
+  border-radius: 24px; /* Rend les boutons pilule */
+  text-decoration: none;
+  font-weight: 500; /* Texte des boutons en poids moyen */
+  color: var(--button-text-color); /* Couleur du texte des boutons */
+  transition: box-shadow 0.2s ease, border-color 0.2s ease; /* Transition douce */
+}
+
+.social-link:last-child {
+  margin-bottom: 0; /* Pas de marge après le dernier bouton */
 }
 
 .social-link .icon {
-    width: 22px;
-    height: 22px;
-    margin-right: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 20px; /* Icônes légèrement plus petites */
+  height: 20px;
+  margin-right: 10px; /* Espacement icône-texte */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Pour les icônes SVG dans les liens sociaux */
 .social-link .icon svg,
 .social-link .icon img {
     width: 100%;
@@ -219,85 +229,47 @@ main.container {
 }
 .social-link.whatsapp:hover { border-color: var(--whatsapp-icon-color); }
 .social-link.email:hover { border-color: var(--email-icon-color); }
-.social-link.facebook:hover { border-color: var(--facebook-icon-color); }
+.social-link.facebook:hover { border-color: blue; }
 .social-link.wechat:hover { border-color: var(--wechat-icon-color); }
 
-/* ---------------------------------------------------------------------- */
-/* 6. MESSAGES ET ADRESSE */
-/* ---------------------------------------------------------------------- */
-.adresse {
-    padding: 0 var(--spacing-md);
-    margin-top: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
-    color: var(--secondary-text-color);
-    font-size: 1.0em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-.adresse ion-icon {
-    margin-right: 8px;
-    font-size: 1.3em;
-    color: var(--light-text-color);
-}
 
+/* Message de pied de page */
 .footer-message {
-    padding: var(--spacing-sm) var(--spacing-md) 0;
-    font-size: 0.95em;
-    color: var(--light-text-color);
-    text-align: center;
-    margin-top: var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-md) 0 var(--spacing-md);
+  font-size: 0.9em;
+  color: var(--light-text-color);
+  text-align: center; /* Centrer le message du pied de page */
+  margin-top: var(--spacing-md);
 }
 .footer-message p {
-    margin: 0;
+    margin: 0; /* Supprimer les marges par défaut des paragraphes */
 }
 
-/* ---------------------------------------------------------------------- */
-/* 7. MEDIA QUERIES POUR LA RÉACTIVITÉ */
-/* ---------------------------------------------------------------------- */
-@media (max-width: 480px) {
-    body {
-        padding: var(--spacing-sm);
-    }
-    .profile-card {
-        border-radius: 0;
-        box-shadow: none;
-    }
-    .card-body {
-        padding: 80px var(--spacing-sm) var(--spacing-md);
-    }
-    .card-body .name {
-        font-size: 1.8em;
-    }
-    .card-body .title {
-        font-size: 1.1em;
-    }
-    .section-title,
-    .social-links-container,
-    .adresse {
-        padding: 0 var(--spacing-sm);
-    }
-    .social-link {
-        height: 45px;
-        font-size: 0.95em;
-    }
-}
 
-@media (max-width: 320px) {
-    .card-body .name {
-        font-size: 1.6em;
-    }
-    .card-body .title {
-        font-size: 1em;
-    }
-    .social-link {
-        height: 40px;
-        font-size: 0.9em;
-    }
-    .social-link .icon {
-        width: 18px;
-        height: 18px;
-        margin-right: 8px;
-    }
+/* Media Queries pour la réactivité */
+@media (max-width: 420px) {
+  body {
+    padding: var(--spacing-sm); /* Moins de padding sur les très petits écrans */
+  }
+  .profile-card {
+    margin: 0 5px; /* Marge latérale plus petite sur les très petits écrans */
+  }
+  .card-body {
+    padding: calc(var(--spacing-md) + 40px) var(--spacing-sm) var(--spacing-md) var(--spacing-sm); /* Ajustement du padding */
+  }
+  .card-body .name {
+    font-size: 1.6em;
+  }
+  .card-body .title {
+    font-size: 1em;
+  }
+  .section-title,
+  .social-links-container,
+  .address-section {
+    padding: 0 var(--spacing-sm); /* Ajustement du padding pour les sections */
+  }
+  .social-link {
+    padding: 8px 10px;
+    font-size: 0.9em;
+  }
 }
